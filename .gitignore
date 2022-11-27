@@ -1,6 +1,3 @@
-/.pytest_cache
-/.vscode
-vscode*
-VSCode*
-VS*/*
-VSCodium*
+__pycache__
+.pytest_cache
+.vscode
