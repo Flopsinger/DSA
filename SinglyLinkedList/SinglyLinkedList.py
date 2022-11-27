@@ -163,7 +163,7 @@ class SinglyLinkedList:
 
     # 0/X
     def insertAtPosition(self, data, position):
-        
+        raise NotImplementedError()
 
 class Node:
     nextNode = None
