@@ -1,5 +1,4 @@
 from SinglyLinkedList import SinglyLinkedList
-import pytest
 
 
 class Test_append:
