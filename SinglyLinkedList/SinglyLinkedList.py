@@ -173,7 +173,7 @@ class SinglyLinkedList:
             ValueError: Data is None
             ValueError: Position is None
             ValueError: Position is Negative
-            ValueError: Position is greater than the length of the list
+            ValueError: Position > length of list
         
         Speed:
             Best:  O(1) (Insert at Head)
@@ -202,9 +202,45 @@ class SinglyLinkedList:
         newNode.nextNode = current
         previous.nextNode = newNode    
     
-    # Tests 0/X
+    # Tests 0/7
     def deleteAtPosition(self, position) -> any:
-        raise NotImplementedError()
+        """Deletes a Node at the given Position.
+
+        Args:
+            position (int): 0-indexed Position in the list
+
+        Raises:
+            ValueError: Position is None
+            ValueError: Position is Negative
+            ValueError: Position > length of List
+            ValueError: Position > length of list
+
+        Returns:
+            any: _description_
+        """
+        if position == None:
+            raise ValueError("Position can not be None")
+        if position < 0:
+            raise ValueError("Position can not be negative")
+        current = self.head
+        previous = None
+        if position == 0:
+            if not current:
+                raise ValueError("Position is greater than the length of the list")
+            else:
+                data = current.data
+                self.head = current.nextNode
+                return data
+        while position > 0 and current:
+            previous = current
+            current = current.nextNode
+            position = position - 1
+        if not current:
+            raise ValueError("Position is greater than the length of the list")
+        data = current.data
+        previous.nextNode = current.nextNode
+        current = None
+        return data
         
 
 class Node:
