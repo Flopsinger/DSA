@@ -142,7 +142,7 @@ class SinglyLinkedList:
             bool: Insert succesful
 
         Speed:
-            Best:  O(1) (Insert after Node0)
+            Best:  O(1) (Insert after Head)
             Worst: O(n) (Insert after Last Node)
         """
         if not data:
@@ -161,9 +161,48 @@ class SinglyLinkedList:
             return True
         return False
 
-    # 0/X
-    def insertAtPosition(self, data, position):
-        raise NotImplementedError()
+    # 9/9
+    def insertAtPosition(self, data, position) -> None:
+        """Inserts a new Node with data at the given Position.
+
+        Args:
+            data (any): Data of the new Node
+            position (int): 0-indexed Position in the list
+
+        Raises:
+            ValueError: Data is None
+            ValueError: Position is None
+            ValueError: Position is Negative
+            ValueError: Position is greater than the length of the list
+        
+        Speed:
+            Best:  O(1) (Insert at Head)
+            Worst: O(n) (Insert after Last Node)
+        """
+        if data == None:
+            raise ValueError("Data can not be None")
+        if position == None:
+            raise ValueError("Position can not be None")
+        if position < 0:
+            raise ValueError("Position can not be negative")
+        if position == 0:
+            newNode = Node(data)
+            newNode.nextNode = self.head
+            self.head = newNode
+            return
+        current = self.head
+        previous = None
+        while position > 0 and current:
+            previous = current
+            current = current.nextNode
+            position = position - 1
+        if position > 0:
+            raise ValueError("Position is greater than the length of the list")
+        newNode = Node(data)
+        newNode.nextNode = current
+        previous.nextNode = newNode    
+        
+        
 
 class Node:
     nextNode = None
