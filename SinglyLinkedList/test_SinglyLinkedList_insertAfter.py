@@ -1,12 +1,13 @@
 import pytest
 from SinglyLinkedList import SinglyLinkedList
 
+
 class Test_insertAfter:
     def test_dataNone(self):
         SLL = SinglyLinkedList()
         with pytest.raises(ValueError):
             SLL.insertAfter(None, 0)
-    
+
     def test_afterNone(self):
         SLL = SinglyLinkedList()
         with pytest.raises(ValueError):
@@ -29,7 +30,7 @@ class Test_insertAfter:
         expected = True
         actual = SLL.insertAfter(2, 1)
         assert expected == actual
-    
+
     def test_oneItemNotInList(self):
         SLL = SinglyLinkedList()
         SLL.append(1)

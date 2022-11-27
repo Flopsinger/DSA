@@ -1,6 +1,7 @@
 from SinglyLinkedList import SinglyLinkedList
 import pytest
 
+
 class Test_getLength:
     def test_positive(self):
         SLL = SinglyLinkedList()

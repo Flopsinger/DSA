@@ -1,5 +1,5 @@
-import pytest
 from SinglyLinkedList import SinglyLinkedList
+
 
 class Test_isEmpty:
     def test_empty(self):

@@ -1,32 +1,33 @@
 class SinglyLinkedList:
     head = None
+
     def __init__(self):
         self.head = None
 
-    # Tests 2/2 
+    # Tests 2/2
     def append(self, data) -> None:
         """Appends a new Node with the given data to the end of the list.
 
         Args:
             data (any): Data of the new Node
 
-        Speed: 
+        Speed:
             Always: O(n)
         """
         current = self.head
         newNode = Node(data)
-        if current == None:
+        if current is None:
             self.head = newNode
         else:
             while current.nextNode:
                 current = current.nextNode
             current.nextNode = newNode
-    
-    def print(self) -> None:     
+
+    def print(self) -> None:
         """
         Prints the all items in the list sequentially separated by dashes "-"
-        
-        Speed: 
+
+        Speed:
             Always O(n)
         """
         current = self.head
@@ -34,14 +35,14 @@ class SinglyLinkedList:
             print(current.data, end=" - ")
             current = current.nextNode
         print()
-        
+
     # Tests 2/2
     def prepend(self, data) -> None:
         """Prepends a new Node with the given data to the beginning of the list.
 
         Args:
             data (any): Data of the new Node
-        
+
         Speed:
             Always: O(1)
         """
@@ -61,7 +62,7 @@ class SinglyLinkedList:
         """
         count = 0
         current = self.head
-        if current == None:
+        if current is None:
             return count
         else:
             count += 1
@@ -69,14 +70,14 @@ class SinglyLinkedList:
                 count += 1
                 current = current.nextNode
         return count
-    
+
     # Tests 3/3
     def deleteFirst(self) -> any:
         """Deletes the first Node from the list.
 
         Returns:
             any: Data of the first Node
-        
+
         Speed:
             Always: O(1)
         """
@@ -94,7 +95,7 @@ class SinglyLinkedList:
 
         Returns:
             any: Data of the last Node
-        
+
         Speed:
             Always: O(n)
         """
@@ -107,13 +108,13 @@ class SinglyLinkedList:
             return data
         else:
             nextNode = current.nextNode
-            while nextNode.nextNode: 
+            while nextNode.nextNode:
                 current = nextNode
                 nextNode = nextNode.nextNode
             data = nextNode.data
             nextNode = None
             current.nextNode = None
-            return data 
+            return data
 
     # Tests 2/2
     def isEmpty(self) -> bool:
@@ -174,14 +175,14 @@ class SinglyLinkedList:
             ValueError: Position is None
             ValueError: Position is Negative
             ValueError: Position > length of list
-        
+
         Speed:
             Best:  O(1) (Insert at Head)
             Worst: O(n) (Insert after Last Node)
         """
-        if data == None:
+        if data is None:
             raise ValueError("Data can not be None")
-        if position == None:
+        if position is None:
             raise ValueError("Position can not be None")
         if position < 0:
             raise ValueError("Position can not be negative")
@@ -200,8 +201,8 @@ class SinglyLinkedList:
             raise ValueError("Position is greater than the length of the list")
         newNode = Node(data)
         newNode.nextNode = current
-        previous.nextNode = newNode    
-    
+        previous.nextNode = newNode
+
     # Tests 0/7
     def deleteAtPosition(self, position) -> any:
         """Deletes a Node at the given Position.
@@ -218,7 +219,7 @@ class SinglyLinkedList:
         Returns:
             any: _description_
         """
-        if position == None:
+        if position is None:
             raise ValueError("Position can not be None")
         if position < 0:
             raise ValueError("Position can not be negative")
@@ -226,7 +227,8 @@ class SinglyLinkedList:
         previous = None
         if position == 0:
             if not current:
-                raise ValueError("Position is greater than the length of the list")
+                raise ValueError(
+                    "Position is greater than the length of the list")
             else:
                 data = current.data
                 self.head = current.nextNode
@@ -241,10 +243,11 @@ class SinglyLinkedList:
         previous.nextNode = current.nextNode
         current = None
         return data
-        
+
 
 class Node:
     nextNode = None
     data = None
+
     def __init__(self, data):
         self.data = data
