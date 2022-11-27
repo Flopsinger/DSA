@@ -161,7 +161,7 @@ class SinglyLinkedList:
             return True
         return False
 
-    # 9/9
+    # Tests 9/9
     def insertAtPosition(self, data, position) -> None:
         """Inserts a new Node with data at the given Position.
 
@@ -201,7 +201,10 @@ class SinglyLinkedList:
         newNode = Node(data)
         newNode.nextNode = current
         previous.nextNode = newNode    
-        
+    
+    # Tests 0/X
+    def deleteAtPosition(self, position) -> any:
+        raise NotImplementedError()
         
 
 class Node:
