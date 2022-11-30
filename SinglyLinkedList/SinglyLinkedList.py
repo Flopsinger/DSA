@@ -203,7 +203,7 @@ class SinglyLinkedList:
         newNode.nextNode = current
         previous.nextNode = newNode
 
-    # Tests 0/7
+    # Tests 7/7
     def deleteAtPosition(self, position) -> any:
         """Deletes a Node at the given Position.
 
@@ -244,6 +244,9 @@ class SinglyLinkedList:
         current = None
         return data
 
+    # Tests 0/X
+    def insertBefore(self, data, before) -> bool:
+        raise NotImplementedError()
 
 class Node:
     nextNode = None
