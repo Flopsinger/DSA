@@ -217,7 +217,7 @@ class SinglyLinkedList:
             ValueError: Position > length of list
 
         Returns:
-            any: _description_
+            any: Data of the deleted Node
         """
         if position is None:
             raise ValueError("Position can not be None")
