@@ -244,9 +244,46 @@ class SinglyLinkedList:
         current = None
         return data
 
-    # Tests 0/X
+    # Tests 8/8
     def insertBefore(self, data, before) -> bool:
-        raise NotImplementedError()
+        """Insert a Node with Data before another Node.
+
+        Args:
+            data (any): Data of the new Node
+            before (any): Data of the before-Node
+
+        Raises:
+            ValueError: Data is None
+            ValueError: Before is None
+
+        Returns:
+            bool: Success of insert
+        
+        Speed:
+            Best:  O(1)
+            Worst: O(n)
+        """
+        if data is None:
+            raise ValueError("Data can not be None")
+        if before is None:
+            raise ValueError("Before can not be None")
+        current = self.head
+        previous = None
+        if before == current.data:
+            newNode = Node(data)
+            newNode.nextNode = current
+            self.head = newNode
+            return True
+        while current is not None and current.data != before:
+            previous = current
+            current = current.nextNode
+        if current is None:
+            return False
+        newNode = Node(data)
+        newNode.nextNode = current
+        previous.nextNode = newNode
+        return True
+
 
 class Node:
     nextNode = None

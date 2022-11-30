@@ -1,6 +1,7 @@
 import pytest
 from SinglyLinkedList import SinglyLinkedList
 
+
 class Test_insertBefore():
     def test_dataNone(self):
         SLL = SinglyLinkedList()
@@ -11,7 +12,7 @@ class Test_insertBefore():
         SLL = SinglyLinkedList()
         with pytest.raises(ValueError):
             SLL.insertBefore(0, None)
-    
+
     def test_bothNone(self):
         SLL = SinglyLinkedList()
         with pytest.raises(ValueError):
@@ -30,7 +31,7 @@ class Test_insertBefore():
         expected = False
         actual = SLL.insertBefore(2, 2)
         assert expected == actual
-    
+
     def test_TwoItemsInsertBeforeZero(self):
         SLL = SinglyLinkedList()
         SLL.append(1)
@@ -46,7 +47,7 @@ class Test_insertBefore():
         expected = True
         actual = SLL.insertBefore(3, 2)
         assert expected == actual
-    
+
     def test_TwoItemsInsertBeforeNotInList(self):
         SLL = SinglyLinkedList()
         SLL.append(1)
