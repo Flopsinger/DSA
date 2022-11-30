@@ -258,7 +258,7 @@ class SinglyLinkedList:
 
         Returns:
             bool: Success of insert
-        
+
         Speed:
             Best:  O(1)
             Worst: O(n)
